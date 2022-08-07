@@ -1,0 +1,80 @@
+Admin Portal:
+	It deals with all the back-end data generation and product information. The admin user should be able to:
+	Authorize the roles and guidelines for the user
+	Grant access to the user regarding money transfer, deposits, and withdrawal
+	Block the user account in case of any threat
+	Authorize the cheque book requests
+User Portal:
+	It deals with the user activities. The user should be able to:
+
+	Register or log in to the application to maintain a record of activities
+	Deposit and withdraw money from the account
+	View transactions and balance in the primary and savings account
+	Transfer funds between different accounts and add recipients
+	Request cheque books for different accounts
+
+AdminController - "/admin" {pathVariable}
+	-> /user/{username}/features/{featureId}
+	-> /user/{username}/authorize/enable
+	-> /user/{username}/authorize/cancel
+	-> /user/all
+	-> /user/unauthorized/all
+	-> /chequebook/request/all
+	-> /user/{accountNo}/chequebook/request/confirm
+	-> /user/{username}/enable
+	-> /user/{username}/disable
+	->/search/user/{userDetails}
+	
+UserPortal:
+	AccountController
+		/account/details/{account}
+		/account/profile
+		/account/primary/{username}
+		/account/deposit
+		/account/withdraw
+		/account/transfer
+		/account/history/{account}
+		/account/transfers/{account}
+	ChequeBookController
+		/cheque/request
+		/cheque/account/{accountNo}
+	LoginController
+		/login
+	ProfileController
+		/profile/update
+		/profile/{username}
+	RegistrationController
+		/register 
+		
+	Account
+		id, accNo, balance, username, User
+	ChequeBookRequest
+		id, accountno, type, status, noOfPages, date
+	TransferInfo
+		id, saccno, raccno, amount, date 
+	User
+		id, fname, lname, phone, email, username, password, type
+	UserHistory
+		id, accno, amount, action, date
+	UserDisplay
+		userid, primartAccNo, balance, savingsAccNo
+		
+		
+Front End
+
+	Pages...
+	Admin
+		-> Access Grant Page for 
+		-> Block User
+		-> Authorize User 
+		
+	Common Pages
+	-> Login  
+	-> Registration   
+	
+	User Pages
+	-> Account Transfer  
+	-> Withdraw/Deposit   
+	-> History
+	-> Edit Profile
+	-> Cheque Book Request
