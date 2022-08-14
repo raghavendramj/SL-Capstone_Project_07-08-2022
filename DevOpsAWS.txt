@@ -1,0 +1,23 @@
+In EC2
+	Create a new instance :- Redhat 
+	sudo su
+	yum install java-1.8.0-openjdk
+	
+	alternatives --config 'java'
+	Select number for 1.8
+	
+	mkdir raghav
+	cd raghav
+	
+
+S3
+	-> Create a Bucket!
+	-> https://aws.amazon.com/premiumsupport/knowledge-center/read-access-objects-s3-bucket/
+	-> Get Object public url :- https://simplilearnaws.s3.us-west-1.amazonaws.com/foraws-0.0.1-SNAPSHOT.jar
+
+Come back to AWS EC2
+	-> wget  https://simplilearnaws.s3.us-west-1.amazonaws.com/foraws-0.0.1-SNAPSHOT.jar
+	-> download  https://simplilearnaws.s3.us-west-1.amazonaws.com/foraws-0.0.1-SNAPSHOT.jar
+	-> java -jar foraws-0.0.1-SNAPSHOT.jar
+	-> Spring boot application -> 8088 -> 
+	-> URL -> http://ec2-52-53-213-176.us-west-1.compute.amazonaws.com:8088/welcome
